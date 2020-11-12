@@ -16,7 +16,7 @@ app.use( express.json({ extended: true }));
 
 //Puerto de la app, es necesario dejarlo de esta manera para poder desplegar en heroku
 //const port = process.env.port || 4000;
-const port = process.env.port
+const port = process.env.PORT
 
 //Importar rutas
 app.use('/api/usuarios', require('./routes/usuarios'));
