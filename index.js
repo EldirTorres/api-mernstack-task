@@ -1,6 +1,6 @@
 const express = require('express');
 const conectarDB = require('./config/db')
-//const cors = require('cors');
+const cors = require('cors');
 
 //Crear el servidor
 const app = express()
@@ -9,15 +9,7 @@ const app = express()
 conectarDB();
 
 // habilitar cors
-//app.use(cors());
-app.use((req, res, next) => {
-    //Si queremos permitir una url especifica cambiariamos '*', por la url permitida
-    res.header('Access-Control-Allow-Origin', '*');
-    res.header('Access-Control-Allow-Headers', 'Authorization, X-API-KEY, Origin, X-Requested-With, Content-Type, Accept, Access-Control-Allow-Request-Method');
-    res.header('Access-Control-Allow-Methods', 'GET, POST, OPTIONS, PUT, DELETE');
-    res.header('Allow', 'GET, POST, OPTIONS, PUT, DELETE');
-    next();
-});
+app.use(cors());
 
 // Habilitar express.json, no es necesario ya usar bodyparser
 app.use( express.json({ extended: true }));
